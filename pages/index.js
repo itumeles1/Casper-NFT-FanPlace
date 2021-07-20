@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -17,7 +19,7 @@ export default function Home() {
     loadNFTs()
   }, [])
   async function loadNFTs() {    
-    const provider = new ethers.providers.JsonRpcProvider("https://8545-coffee-herring-ikht3xln.ws-eu11.gitpod.io/")
+    const provider = new ethers.providers.JsonRpcProvider()
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
     const data = await marketContract.fetchMarketItems()
